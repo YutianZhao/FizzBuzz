@@ -9,11 +9,20 @@ namespace FizzBuzz.Controllers
     { 
         private readonly IFizzBuzzService _fizzBuzzService;
 
+        /// <summary>
+        /// Controller Constructor
+        /// </summary>
+        /// <param name="fizzBuzzService">Service to process</param>
         public FizzBuzzController(IFizzBuzzService fizzBuzzService)
         {
             _fizzBuzzService = fizzBuzzService;
         }
 
+        /// <summary>
+        /// Process FizzBuzz endpoint
+        /// </summary>
+        /// <param name="objects">An array of any type</param>
+        /// <returns>A list of result</returns>
         [HttpPost]
         public ActionResult<List<List<string>>> ProcessFizzBuzz([FromBody] object?[] objects)
         {

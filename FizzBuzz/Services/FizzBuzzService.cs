@@ -5,6 +5,12 @@ namespace FizzBuzz.Services
 {
     public class FizzBuzzService: IFizzBuzzService
     {
+        /// <summary>
+        /// Process Fizz Buzz Logic
+        /// </summary>
+        /// <param name="objects">An array of any type</param>
+        /// <returns>A list of result</returns>
+        /// <exception cref="Exception"></exception>
         public List<List<string>> ProcessFizzBuzz(object?[] objects)
         {
             try
