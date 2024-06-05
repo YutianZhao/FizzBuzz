@@ -1,7 +1,9 @@
 # FizzBuzz
 This is an ASP.NET Core 8.0 Web App.<br />
-## Packages
-NuGet package: Moq - For unit testing
+## Packagee
+NuGet package:<br />
+NUnit - For unit testing<br />
+Moq - For mocking in unit test<br />
 ## Endpoints:
 [Post] .../api/FizzBuzz;<br />
 Request body type: array of any, e.g. [1, 3, 5, null, "A", 23]<br />
