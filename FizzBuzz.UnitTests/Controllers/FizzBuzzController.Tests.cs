@@ -51,5 +51,16 @@ namespace FizzBuzz.UnitTests.Controllers
             Assert.That(badRequestResult.Value, Is.EqualTo("Input array cannot be null or empty"));
         }
 
+        [Test]
+        public void ProcessFizzBuzz_ShouldReturnBadRequestResult_InputArrayIsNull()
+        {
+            _fizzBuzzService.Setup(s => s.ProcessFizzBuzz(It.IsAny<object?[]>())).Returns(_expectedResult);
+            var result = _fizzBuzzController.ProcessFizzBuzz(null);
+            Assert.IsNotNull(result.Result);
+            Assert.IsInstanceOf<BadRequestObjectResult>(result.Result);
+            var badRequestResult = (BadRequestObjectResult)result.Result;
+            Assert.That(badRequestResult.StatusCode, Is.EqualTo(400));
+            Assert.That(badRequestResult.Value, Is.EqualTo("Input array cannot be null or empty"));
+        }
     }
 }
