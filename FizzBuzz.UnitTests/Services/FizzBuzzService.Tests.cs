@@ -9,13 +9,13 @@ namespace FizzBuzz.UnitTests.Services
         private readonly object?[] _mockData = { 1, 3, 5, null, 15, "A", 23 };
         private List<List<string>> _expectedResult = new List<List<string>>
         {
-            { ["0", "0"] },
+            { ["Divided 1 by 3", "Divided 1 by 5"] },
             { ["Fizz"] },
             { ["Buzz"] },
             { ["Invalid Item"] },
             { ["FizzBuzz"] },
             { ["Invalid Item"] },
-            { ["7", "4"] }
+            { ["Divided 23 by 3", "Divided 23 by 5"] }
         };
         [SetUp]
         public void Setup()

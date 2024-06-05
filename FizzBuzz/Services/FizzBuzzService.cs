@@ -42,8 +42,8 @@ namespace FizzBuzz.Services
                         }
                         else
                         {
-                            currentResult.Add((number / 3).ToString());
-                            currentResult.Add((number / 5).ToString());
+                            currentResult.Add($"Divided {number} by 3");
+                            currentResult.Add($"Divided {number} by 5");
                         }
                     }
                     else
