@@ -2,6 +2,6 @@
 {
     public interface IFizzBuzzService
     {
-        List<List<string>> ProcessFizzBuzz(object[] objects);
+        List<List<string>> ProcessFizzBuzz(object?[] objects);
     }
 }

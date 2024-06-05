@@ -6,25 +6,30 @@ namespace FizzBuzz.Controllers
     [ApiController]
     [Route("api/[controller]")]
     public class FizzBuzzController : ControllerBase
-    {
-        private readonly ILogger<FizzBuzzController> _logger;
+    { 
         private readonly IFizzBuzzService _fizzBuzzService;
 
-        public FizzBuzzController(ILogger<FizzBuzzController> logger, IFizzBuzzService fizzBuzzService)
+        public FizzBuzzController(IFizzBuzzService fizzBuzzService)
         {
-            _logger = logger;
             _fizzBuzzService = fizzBuzzService;
         }
 
         [HttpPost]
-        public ActionResult<List<List<string>>> ProcessFizzBuzz([FromBody] object[] objects)
+        public ActionResult<List<List<string>>> ProcessFizzBuzz([FromBody] object?[] objects)
         {
-            if (objects == null || objects.Length == 0)
+            try
             {
-                return BadRequest("Input array cannot be null or empty");
+                if (objects == null || objects.Length == 0)
+                {
+                    return BadRequest("Input array cannot be null or empty");
+                }
+                var ProcessFizzBuzzResult = _fizzBuzzService.ProcessFizzBuzz(objects);
+                return Ok(ProcessFizzBuzzResult);
             }
-            var ProcessFizzBuzzResult = _fizzBuzzService.ProcessFizzBuzz(objects);
-            return Ok(ProcessFizzBuzzResult);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
